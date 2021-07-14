@@ -1,15 +1,21 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="app">
+    <main-layout>
+      <router-view />
+    </main-layout>
   </div>
 </template>
+<script>
+import MainLayout from "./components/layout/MainLayout";
 
+export default {
+  components: {
+    MainLayout,
+  },
+};
+</script>
 <style lang="scss">
-#app {
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +23,7 @@
   color: #2c3e50;
 }
 
-#nav {
+.nav {
   padding: 30px;
 
   a {
