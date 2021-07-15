@@ -8601,6 +8601,11 @@ vue@^2.6.11:
   resolved "https://registry.nlark.com/vue/download/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha1-5RqlJQJQ1Wmj+606ilpofWA24jU=
 
+vueperslides@^2.15.1:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/vueperslides/-/vueperslides-2.15.1.tgz#44c89cb8c11bdef528b9adbe85da085948df225f"
+  integrity sha512-jyTFFrD9CTgBh1Og1dDqhPBpKHt/j93RCTvF+Hdknox8d3lx3U0iQFwEll/lh0KXeIRAspkhxV42gmxvMWtf5w==
+
 vuex@^3.4.0:
   version "3.6.2"
   resolved "https://registry.nlark.com/vuex/download/vuex-3.6.2.tgz#236bc086a870c3ae79946f107f16de59d5895e71"
