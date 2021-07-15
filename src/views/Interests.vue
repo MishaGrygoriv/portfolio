@@ -30,6 +30,31 @@
           muted
           autoplay
         ></video>
+        <!-- <iframe
+          class="interests__video"
+          allowfullscreen
+          src="https://www.youtube.com/watch?v=au_LszgQ63I"
+          autoplay
+          loop
+        ></iframe> -->
+        <!-- <iframe
+          width="100%"
+          height="100%"
+          class="interests__video"
+          src="https://www.youtube.com/embed/au_LszgQ63I?autoplay=1"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; loop;"
+          loop
+        ></iframe> -->
+        <!-- <iframe
+          src="https://www.youtube.com/embed/au_LszgQ63I"
+          height="100%"
+          width="100%"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          frameborder="0"
+        ></iframe> -->
       </div>
       <div class="interests__text-wrapper">
         <span class="interests__video-text" data-text="Watch the video"></span>
@@ -38,7 +63,7 @@
   </div>
 </template>
 <script>
-import video from "@/assets/Egypt_Continental Plaza_2020.mp4";
+import video from "@/assets/Egypt_Continental Plaza_2020 (convert-video-online.com).webm";
 import TitleBackground from "../components/common/TitleBackground.vue";
 // src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4"
 
