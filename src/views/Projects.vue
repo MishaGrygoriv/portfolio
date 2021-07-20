@@ -20,6 +20,10 @@
         </h1>
       </div>
     </div>
+    <div class="light projects__section">
+      <h2 class="projects__section-title">My Projects</h2>
+      <h2>next</h2>
+    </div>
   </div>
 </template>
 <script>
@@ -36,6 +40,7 @@ export default {
 .projects {
   &__title-container {
     position: relative;
+    margin-bottom: 300px;
   }
   &__title-wrapper {
     position: absolute;
@@ -58,6 +63,16 @@ export default {
       color: $blue-text-color;
       font-size: 300;
     }
+  }
+  // &__section {
+  //   background-color: $light-color;
+  //   background-repeat: no-repeat;
+  //   background-position: 100% 100%;
+  // }
+  &__section-title {
+    @include text($H720, 700, $text-section-color);
+    text-align: left;
+    margin-bottom: 100px;
   }
 }
 </style>

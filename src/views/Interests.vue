@@ -13,8 +13,8 @@
           <span class="interests__title _ampersand">&amp; </span
           ><span>editing</span>
           <span class="interests__title _new-line"
-            >are <span class="interests__title _bold">one</span> of my passions.
-            Here are some
+            >are <span class="interests__title _bold">my</span> favourite
+            passions. Here are some
             <span class="interests__title _bold">my videos</span>
           </span>
         </h1>
@@ -36,19 +36,21 @@
         <span class="interests__video-text" data-text="Watch the video"></span>
       </div>
     </div>
-    <div class="test">
-      <h2>NEXT</h2>
+    <div class="interests__video-gallery-wrapper">
+      <video-gallery />
     </div>
   </div>
 </template>
 <script>
 import video from "@/assets/Egypt_Continental Plaza_2020 (convert-video-online.com).webm";
 import TitleBackground from "../components/common/TitleBackground.vue";
+import VideoGallery from "../components/common/VideoGallery.vue";
 
 export default {
   name: "Interests",
   components: {
     TitleBackground,
+    VideoGallery,
   },
   data() {
     return {

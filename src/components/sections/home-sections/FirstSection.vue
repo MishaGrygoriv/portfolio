@@ -40,7 +40,7 @@ export default {
     TheTriangle,
     FullTriangle,
   },
-  data: function () {
+  data() {
     return {
       image: image,
       socialIcons: this.$store.state.socialIcons,
@@ -51,7 +51,7 @@ export default {
 <style lang="scss">
 .first-section {
   @include flex(space-between, stretch);
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   &__left-col {
     position: relative;
   }

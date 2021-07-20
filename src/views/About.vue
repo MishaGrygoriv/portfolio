@@ -16,19 +16,34 @@
         </h1>
       </div>
     </div>
+    <div class="about__progress-wrapper">
+      <html-progress-bar />
+      <css-progress-bar />
+      <js-progress-bar />
+    </div>
   </div>
 </template>
 <script>
 import TitleBackground from "../components/common/TitleBackground.vue";
+import HtmlProgressBar from "../components/common/HtmlProgressBar.vue";
+import CssProgressBar from "../components/common/CssProgressBar.vue";
+import JsProgressBar from "../components/common/JsProgressBar.vue";
+
 export default {
   name: "About",
-  components: { TitleBackground },
+  components: {
+    TitleBackground,
+    HtmlProgressBar,
+    CssProgressBar,
+    JsProgressBar,
+  },
 };
 </script>
 <style lang="scss">
 .about {
   &__title-container {
     position: relative;
+    margin-bottom: 250px;
   }
   &__title-wrapper {
     position: absolute;
@@ -51,6 +66,10 @@ export default {
       color: $blue-text-color;
       font-size: 300;
     }
+  }
+  &__progress-wrapper {
+    @include flex(space-around, stretch);
+    margin-bottom: 100px;
   }
 }
 </style>
