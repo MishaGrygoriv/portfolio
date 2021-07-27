@@ -20,42 +20,28 @@
         </h1>
       </div>
     </div>
-    <div class="interests__video-container">
-      <input class="interests__checkbox" type="checkbox" />
-      <div class="interests__video-wrapper">
-        <video
-          class="interests__video"
-          :src="video"
-          controls
-          loop
-          muted
-          autoplay
-        ></video>
-      </div>
-      <div class="interests__text-wrapper">
-        <span class="interests__video-text" data-text="Watch the video"></span>
-      </div>
-    </div>
-    <div class="interests__video-gallery-wrapper">
-      <video-gallery />
+    <video-play class="interests__video-play" />
+    <div class="interests__section dark">
+      <h2 class="interests__section-title">My Videos</h2>
+      <ul class="interests__video-card-list">
+        <li class="interests__video-card-item">
+          <video-card />
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
-import video from "@/assets/Egypt_Continental Plaza_2020 (convert-video-online.com).webm";
 import TitleBackground from "../components/common/TitleBackground.vue";
-import VideoGallery from "../components/common/VideoGallery.vue";
+import VideoCard from "../components/common/video/VideoCard.vue";
+import VideoPlay from "../components/common/video/VideoPlay.vue";
 
 export default {
   name: "Interests",
   components: {
     TitleBackground,
-    VideoGallery,
-  },
-  data() {
-    return {
-      video: video,
-    };
+    VideoCard,
+    VideoPlay,
   },
 };
 </script>
@@ -94,127 +80,17 @@ export default {
       font-size: 300;
     }
   }
-  &__video-container {
-    position: relative;
-    @include flex(center, center);
-    width: 100%;
-    margin-bottom: 250px;
+  &__video-play {
+    margin-bottom: 150px;
   }
-  &__checkbox {
-    width: 283px;
-    height: 113px;
-    margin: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    border-radius: 40px;
-    z-index: 2;
-    appearance: none;
-    cursor: pointer;
-    &:focus {
-      outline: 0;
-    }
-    &:hover {
-      ~ .interests__video-wrapper {
-        clip-path: circle(120px at left);
-      }
-      ~ .interests__text-wrapper {
-        &::before {
-          right: 25px;
-          opacity: 1;
-        }
-        &::after {
-          clip-path: circle(70px at left);
-        }
-        > .interests__video-text {
-          &::after {
-            clip-path: circle(70px at left);
-          }
-        }
-      }
-    }
-    &:checked {
-      width: 100%;
-      height: 180%;
-      border-radius: 0;
-      ~ .interests__video-wrapper {
-        clip-path: circle(100vw at left);
-      }
-      ~ .interests__text-wrapper {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        &::after {
-          clip-path: circle(100vw at left);
-        }
-        > .interests__video-text {
-          &::after {
-            clip-path: circle(100vw at left);
-          }
-        }
-      }
-    }
+  &__section {
+    padding: 30px 60px;
   }
-  &__video-wrapper {
-    height: 50vh;
-    overflow: hidden;
-    @include flex(center, center);
-    margin-left: 15px;
-    clip-path: circle(60px at left);
-    transition: clip-path 0.4s ease;
-  }
-  &__video {
-    position: absolute;
-    background: #c4cbde;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-  }
-  &__text-wrapper {
-    position: relative;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    opacity: 1;
-    transition: opacity 0.3s ease 0.2s;
-    left: 51px;
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: -1px;
-      right: 25px;
-      height: 0;
-    }
-    &::before {
-      box-shadow: 26px 0 0 1px #3c3c3c;
-      right: 100%;
-      opacity: 0;
-      transition: right 0.5s ease-in, opacity 0.1s linear;
-    }
-    &::after {
-      box-shadow: 26px 0 0 1px $light-color;
-      clip-path: circle(15px at left);
-      transition: clip-path 0.4s ease;
-    }
-  }
-  &__video-text {
-    &::before,
-    &::after {
-      content: attr(data-text);
-      padding-left: 26px;
-    }
-    &::before {
-      color: #3c3c3c;
-    }
-    &::after {
-      color: $light-color;
-      clip-path: circle(15px at left);
-      transition: clip-path 0.4s ease;
-      position: absolute;
-      left: 0;
-    }
+  &__section-title {
+    @include text($H720, 700, $text-section-color);
+    text-align: left;
+    margin-bottom: 100px;
+    padding-left: 100px;
   }
 }
 </style>

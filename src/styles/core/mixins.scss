@@ -77,11 +77,21 @@
     left: $left;
 }
 
-@mixin transition($types...) {
+@mixin transitions($types...) {
     transition-property: $types;
     transition-duration: 0.3s;
     transition-timing-function: ease;
     @content;
+}
+
+@mixin center {
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+@mixin transition($property: all, $time: 0.5s, $style: ease-in) {
+    transition: #{$property} $time $style;
 }
 
 @mixin transformScale($size: 1) {

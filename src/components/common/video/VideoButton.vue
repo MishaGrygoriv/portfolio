@@ -47,8 +47,12 @@ import gsap from "gsap";
 import { ExpoScaleEase } from "gsap/EasePack";
 
 export default {
-  name: "VideoGallery",
-  componets: { gsap, ExpoScaleEase },
+  name: "VideoButton",
+  // data() {
+  //   return {
+  //     videoLinks: this.$store.state.videoLinks,
+  //   };
+  // },
   mounted() {
     gsap.set(".play-circle-01", {
       rotation: 90,
@@ -105,7 +109,6 @@ export default {
       .timeline({ paused: true })
       .to(
         ".play-backdrop",
-        1,
         {
           opacity: 0.95,
           visibility: "visible",
@@ -172,8 +175,9 @@ export default {
 </script>
 <style lang="scss">
 .video-gallery {
-  @include flex(center, center);
-  margin-bottom: 100px;
+  position: absolute;
+  left: 224px;
+  bottom: 185px;
 }
 .play-button {
   width: 152px;

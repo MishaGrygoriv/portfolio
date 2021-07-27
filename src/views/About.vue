@@ -25,9 +25,9 @@
 </template>
 <script>
 import TitleBackground from "../components/common/TitleBackground.vue";
-import HtmlProgressBar from "../components/common/HtmlProgressBar.vue";
-import CssProgressBar from "../components/common/CssProgressBar.vue";
-import JsProgressBar from "../components/common/JsProgressBar.vue";
+import HtmlProgressBar from "../components/common/progress-bar/HtmlProgressBar.vue";
+import CssProgressBar from "../components/common/progress-bar/CssProgressBar.vue";
+import JsProgressBar from "../components/common/progress-bar/JsProgressBar.vue";
 
 export default {
   name: "About",
