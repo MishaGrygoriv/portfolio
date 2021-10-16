@@ -20,6 +20,7 @@ export default {
 .header {
   @include flex(space-between, center);
   margin-bottom: 120px;
+  padding: 30px 100px;
   &__logo {
     @include text($H280, 700, $text-color);
     letter-spacing: 4px;

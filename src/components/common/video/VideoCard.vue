@@ -19,86 +19,7 @@
             </a>
           </li>
         </ul>
-        <svg class="video-card__animation-bg">
-          <path
-            id="p"
-            d="M0,200 Q80,100 600,200 V150 H0 V50"
-            transform="translate(0 300)"
-          />
-          <rect
-            id="dummyRect"
-            x="0"
-            y="0"
-            height="450"
-            width="600"
-            fill="transparent"
-          />
-          <!-- slide up-->
-          <animate
-            xlink:href="#p"
-            attributeName="d"
-            to="M0,50 Q80,100 600,50 V150 H0 V50"
-            fill="freeze"
-            begin="dummyRect.mouseover"
-            end="dummyRect.mouseout"
-            dur="0.1s"
-            id="bounce1"
-          />
-          <!-- slide up and curve in -->
-          <animate
-            xlink:href="#p"
-            attributeName="d"
-            to="M0,50 Q80,0 600,50 V150 H0 V50"
-            fill="freeze"
-            begin="bounce1.end"
-            end="dummyRect.mouseout"
-            dur="0.15s"
-            id="bounce2"
-          />
-          <!-- slide down and curve in -->
-          <animate
-            xlink:href="#p"
-            attributeName="d"
-            to="M0,50 Q80,80 600,50 V150 H0 V50"
-            fill="freeze"
-            begin="bounce2.end"
-            end="dummyRect.mouseout"
-            dur="0.15s"
-            id="bounce3"
-          />
-          <!-- slide down and curve out -->
-          <animate
-            xlink:href="#p"
-            attributeName="d"
-            to="M0,50 Q80,45 600,50 V150 H0 V50"
-            fill="freeze"
-            begin="bounce3.end"
-            end="dummyRect.mouseout"
-            dur="0.1s"
-            id="bounce4"
-          />
-          <!-- curve in -->
-          <animate
-            xlink:href="#p"
-            attributeName="d"
-            to="M0,50 Q80,50 600,50 V150 H0 V50"
-            fill="freeze"
-            begin="bounce4.end"
-            end="dummyRect.mouseout"
-            dur="0.05s"
-            id="bounce5"
-          />
-
-          <animate
-            xlink:href="#p"
-            attributeName="d"
-            to="M0,200 Q80,100 600,200 V150 H0 V50"
-            fill="freeze"
-            begin="dummyRect.mouseout"
-            dur="0.15s"
-            id="bounceOut"
-          />
-        </svg>
+        <animation-background class="video-card__animation-bg" />
         <div class="video-card__description">
           <h2 class="video-card__title">Just Go</h2>
           <h2 class="video-card__subtitle">(by Michael’s_Way)</h2>
@@ -109,13 +30,15 @@
 </template>
 <script>
 import VideoButton from "./VideoButton.vue";
+import AnimationBackground from "../../icons/AnimationBackground.vue";
 
 export default {
-  components: { VideoButton },
+  components: { VideoButton, AnimationBackground },
   name: "VideoCard",
   data() {
     return {
       socialIcons: this.$store.state.videoSocialIcons,
+      videoLinks: this.$store.state.videoLinks,
     };
   },
 };

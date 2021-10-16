@@ -1,18 +1,19 @@
 <template>
-  <div class="first-section">
-    <div class="first-section__left-col">
-      <div class="first-section__bg-title-container">
-        <h2 class="first-section__back-title">Michael</h2>
-        <h2 class="first-section__back-title _second">Grygoriv</h2>
-        <h1 class="first-section__front-title">
-          Michael<span class="first-section__front-title">Grygoriv</span>
-        </h1>
-      </div>
-      <h2 class="first-section__subtitle">Front-End Developer</h2>
-      <the-triangle class="first-section__triangle _empty" />
-      <full-triangle class="first-section__triangle" />
-      <the-triangle class="first-section__triangle _black" />
-      <!-- <ul class="first-section__social-list">
+  <div class="first-section container">
+    <div class="first-section__col-wrapper">
+      <div class="first-section__left-col">
+        <div class="first-section__bg-title-container">
+          <h2 class="first-section__back-title">Michael</h2>
+          <h2 class="first-section__back-title _second">Grygoriv</h2>
+          <h1 class="first-section__front-title">
+            Michael<span class="first-section__front-title">Grygoriv</span>
+          </h1>
+        </div>
+        <h2 class="first-section__subtitle">Front-End Developer</h2>
+        <the-triangle class="first-section__triangle _empty" />
+        <full-triangle class="first-section__triangle" />
+        <the-triangle class="first-section__triangle _black" />
+        <!-- <ul class="first-section__social-list">
         <li
           class="first-section__social-item"
           v-for="icon in socialIcons"
@@ -23,11 +24,13 @@
           </a>
         </li>
       </ul> -->
-      <social-icons />
+        <social-icons />
+      </div>
+      <div class="first-section__right-col">
+        <img class="first-section__img" :src="image" />
+      </div>
     </div>
-    <div class="first-section__right-col">
-      <img class="first-section__img" :src="image" />
-    </div>
+    <scroll-down-btn />
   </div>
 </template>
 <script>
@@ -35,6 +38,7 @@ import image from "@/assets/michael.png";
 import TheTriangle from "../../icons/TheTriangle";
 import FullTriangle from "../../icons/FullTriangle";
 import SocialIcons from "../../common/SocialIcons.vue";
+import ScrollDownBtn from "../../common/ScrollDownBtn.vue";
 
 export default {
   name: "FirstSections",
@@ -42,6 +46,7 @@ export default {
     TheTriangle,
     FullTriangle,
     SocialIcons,
+    ScrollDownBtn,
   },
   data() {
     return {
@@ -53,8 +58,10 @@ export default {
 </script>
 <style lang="scss">
 .first-section {
-  @include flex(space-between, stretch);
-  margin-bottom: 100px;
+  padding-bottom: 100px;
+  &__col-wrapper {
+    @include flex(space-between, stretch);
+  }
   &__left-col {
     position: relative;
   }
@@ -67,6 +74,15 @@ export default {
     letter-spacing: 18px;
     line-height: 110px;
     margin-bottom: 30px;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background-color: #206bff;
+      bottom: 130px;
+      right: 115px;
+    }
     &._second {
       margin-bottom: 0;
       &::after {
@@ -191,13 +207,13 @@ export default {
     }
   }
   &__right-col {
-    @include flex(space-around, stretch);
+    @include flex(stretch, stretch);
   }
   &__img {
     width: 430px;
     position: relative;
-    right: 50px;
-    bottom: 20px;
+    // right: 50px;
+    bottom: 50px;
   }
 }
 // @keyframes bouncy {

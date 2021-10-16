@@ -95,7 +95,7 @@ export default {
     }
   }
   &__link {
-    @include text($H200, 400, $text-color);
+    @include text($H80, 400, $text-color);
     background-color: $bg-text-color;
     padding: 5px;
     position: relative;

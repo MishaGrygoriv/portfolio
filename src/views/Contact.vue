@@ -18,15 +18,18 @@
         </h1>
       </div>
     </div>
+    <!-- <test></test> -->
   </div>
 </template>
 <script>
+// import Test from "../components/common/Test.vue";
 import TitleBackground from "../components/common/TitleBackground.vue";
 
 export default {
   name: "Contact",
   components: {
     TitleBackground,
+    // Test,
   },
 };
 </script>

@@ -1,33 +1,12 @@
-<template>
-  <div class="video-gallery">
-    <div class="play-backdrop"></div>
-    <div class="play-button">
-      <svg class="play-circles" viewBox="0 0 152 152">
-        <circle
-          class="play-circle-01"
-          fill="none"
-          stroke="#fff"
-          stroke-width="3"
-          stroke-dasharray="343 343"
-          cx="76"
-          cy="76"
-          r="72.7"
-        />
-        <circle
-          class="play-circle-02"
-          fill="none"
-          stroke="#fff"
-          stroke-width="3"
-          stroke-dasharray="309 309"
-          cx="76"
-          cy="76"
-          r="65.5"
-        />
-      </svg>
-      <div class="play-perspective">
-        <button class="play-close"></button>
-        <div class="play-triangle">
-          <div class="play-video">
+<template >
+  <div class="video-btn">
+    <div class="video-btn__backdrop"></div>
+    <div class="video-btn__play-button">
+      <video-circles-svg class="video-btn__circles" />
+      <div class="video-btn__perspective">
+        <button class="video-btn__close-button"></button>
+        <div class="video-btn__triangle">
+          <div class="video-btn__video-wrapper">
             <iframe
               width="600"
               height="400"
@@ -45,38 +24,40 @@
 <script>
 import gsap from "gsap";
 import { ExpoScaleEase } from "gsap/EasePack";
+import VideoCirclesSvg from "../../icons/VideoCirclesSvg.vue";
 
 export default {
   name: "VideoButton",
-  // data() {
-  //   return {
-  //     videoLinks: this.$store.state.videoLinks,
-  //   };
-  // },
+  components: { VideoCirclesSvg },
+  data() {
+    return {
+      videoLinks: this.$store.state.videoLinks,
+    };
+  },
   mounted() {
-    gsap.set(".play-circle-01", {
+    gsap.set(".first-circle", {
       rotation: 90,
       transformOrigin: "center",
     });
 
-    gsap.set(".play-circle-02", {
+    gsap.set(".second-circle", {
       rotation: -90,
       transformOrigin: "center",
     });
 
-    gsap.set(".play-perspective", {
+    gsap.set(".video-btn__perspective", {
       xPercent: 6.5,
       scale: 0.175,
       transformOrigin: "center",
       perspective: 1,
     });
 
-    gsap.set(".play-video", {
+    gsap.set(".video-btn__video-wrapper", {
       visibility: "hidden",
       opacity: 0,
     });
 
-    gsap.set(".play-triangle", {
+    gsap.set(".video-btn__triangle", {
       transformOrigin: "left center",
       transformStyle: "preserve-3d",
       rotationY: 10,
@@ -85,7 +66,7 @@ export default {
     const rotateTL = gsap
       .timeline({ paused: true })
       .to(
-        ".play-circle-01",
+        ".first-circle",
         {
           opacity: 0.1,
           rotation: "+=360",
@@ -95,7 +76,7 @@ export default {
         0
       )
       .to(
-        ".play-circle-02",
+        ".second-circle",
         {
           opacity: 0.1,
           rotation: "-=360",
@@ -108,7 +89,7 @@ export default {
     const openTL = gsap
       .timeline({ paused: true })
       .to(
-        ".play-backdrop",
+        ".video-btn__backdrop",
         {
           opacity: 0.95,
           visibility: "visible",
@@ -117,7 +98,7 @@ export default {
         0
       )
       .to(
-        ".play-close",
+        ".video-btn__close-button",
         {
           opacity: 1,
           ease: "power2.inOut",
@@ -125,7 +106,7 @@ export default {
         0
       )
       .to(
-        ".play-perspective",
+        ".video-btn__perspective",
         {
           xPercent: 0,
           scale: 1,
@@ -134,7 +115,7 @@ export default {
         0
       )
       .to(
-        ".play-triangle",
+        ".video-btn__triangle",
         {
           scaleX: 1,
           ease: ExpoScaleEase.config(2, 1, "power2.inOut"),
@@ -142,7 +123,7 @@ export default {
         0
       )
       .to(
-        ".play-triangle",
+        ".video-btn__triangle",
         {
           rotationY: 0,
           ease: ExpoScaleEase.config(10, 0.01, "power2.inOut"),
@@ -150,7 +131,7 @@ export default {
         0
       )
       .to(
-        ".play-video",
+        ".video-btn__video-wrapper",
         {
           visibility: "visible",
           opacity: 1,
@@ -158,9 +139,9 @@ export default {
         0.5
       );
 
-    const button = document.querySelector(".play-button");
-    const backdrop = document.querySelector(".play-backdrop");
-    const close = document.querySelector(".play-close");
+    const button = document.querySelector(".video-btn__play-button");
+    const backdrop = document.querySelector(".video-btn__backdrop");
+    const close = document.querySelector(".video-btn__close-button");
 
     button.addEventListener("mouseover", () => rotateTL.play());
     button.addEventListener("mouseleave", () => rotateTL.reverse());
@@ -174,77 +155,70 @@ export default {
 };
 </script>
 <style lang="scss">
-.video-gallery {
+.video-btn {
   position: absolute;
   left: 224px;
   bottom: 185px;
-}
-.play-button {
-  width: 152px;
-  height: 152px;
-  position: relative;
-  cursor: pointer;
-}
-
-.play-backdrop {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-color: #000;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.play-close {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 0;
-  bottom: calc(100% + 15px);
-  border: none;
-  outline: none;
-  background: none;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.play-close::before,
-.play-close::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: rotate(45deg);
-  background-color: #fff;
-}
-
-.play-close::after {
-  transform: rotate(-45deg);
-}
-
-.play-circles {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.play-perspective {
-  width: 600px;
-  height: 400px;
-  position: absolute;
-  left: -230px;
-  top: -125px;
-}
-
-.play-triangle {
-  width: 600px;
-  height: 400px;
-  background-color: #fff;
-  cursor: pointer;
+  &__backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__play-button {
+    width: 152px;
+    height: 152px;
+    position: relative;
+    cursor: pointer;
+  }
+  &__circles {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  &__perspective {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    left: -230px;
+    top: -125px;
+  }
+  &__close-button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 15px);
+    border: none;
+    outline: none;
+    background: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &__close-button::before,
+  &__close-button::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(45deg);
+    background-color: #fff;
+  }
+  &__close-button::after {
+    transform: rotate(-45deg);
+  }
+  &__triangle {
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    cursor: pointer;
+  }
 }
 </style>

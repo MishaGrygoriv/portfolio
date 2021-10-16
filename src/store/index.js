@@ -55,36 +55,31 @@ export default new Vuex.Store({
             justGo: {
                 src: "https://www.youtube.com/embed/WhZIWZcfeGA"
             },
-            // just: {
-            //     src: "https://youtu.be/iIgN1JQFruU"
-            // },
-        },
-        test: {
-            firstPart: {
-                class1: "play-backdrop",
-                class2: "play-button",
-                class3: "play-circles",
-                class4: "play-circle-01",
-                class5: "play-circle-02",
-                class6: "play-perspective",
-                class7: "play-close",
-                class8: "play-triangle",
-                class9: "play-video",
-                src: "https://www.youtube.com/embed/WhZIWZcfeGA"
-            },
-            secondPart: {
-                class1: "class1",
-                class2: "class2",
-                class3: "class3",
-                class4: "class4",
-                class5: "class5",
-                class6: "class6",
-                class7: "class7",
-                class8: "class8",
-                class9: "class9",
+            just: {
                 src: "https://www.youtube.com/embed/iIgN1JQFruU"
-            }
-        }
+            },
+        },
+        footerList: [{
+                id: 0,
+                title: "Vue JS",
+                src: require('../assets/icons/vue_js.svg'),
+            },
+            {
+                id: 1,
+                title: "Ant Design",
+                src: require('../assets/icons/ant_design.svg'),
+            },
+            {
+                id: 2,
+                title: "RAWG",
+                // url: require('../assets/icons/ant_design.svg'),
+            },
+            {
+                id: 3,
+                title: "Firebase",
+                src: require('../assets/icons/firebase.svg'),
+            },
+        ],
     },
     mutations: {},
     actions: {},
