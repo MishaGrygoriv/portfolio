@@ -2,8 +2,14 @@
   <div class="aside-footer">
     <h2 class="aside-footer__title">{{ title }}</h2>
     <slot />
-    <p class="aside-footer__description">{{ description }}</p>
-    <ul class="aside-footer__list" v-if="listOfNames === true">
+    <p class="aside-footer__description" v-if="description === true">
+      The Game Website made with Vue Js, as well I've connected several
+      libraries such as: 'Ant-Design-Vue', 'Lodash'. Besides, I added the
+      database - 'Firebase', also the largest video game database - 'RAWG'.
+      <span class="aside-footer__space">Just take a look by yourself!</span>
+    </p>
+    <arrow-button class="aside-footer__btn" v-if="btn === true" />
+    <ul class="aside-footer__list" v-if="logoList === true">
       <li class="aside-footer__item" v-for="item in footerList" :key="item.id">
         <div class="aside-footer__img-wrapper">
           <img
@@ -18,11 +24,12 @@
         </div>
       </li>
     </ul>
-    <button class="aside-footer__btn" v-if="btn === true">MyButton</button>
   </div>
 </template>
 
 <script>
+import ArrowButton from "./ArrowButton.vue";
+
 export default {
   name: "TheAsideFooter",
   data() {
@@ -30,18 +37,19 @@ export default {
       footerList: this.$store.state.footerList,
     };
   },
+  components: { ArrowButton },
   props: {
     title: {
       type: String,
       required: true,
     },
     description: {
-      type: String,
-    },
-    btn: {
       type: Boolean,
     },
-    listOfNames: {
+    logoList: {
+      type: Boolean,
+    },
+    btn: {
       type: Boolean,
     },
   },
@@ -50,34 +58,48 @@ export default {
 
 <style lang="scss">
 .aside-footer {
-  // @include flex(stretch, stretch, column);
   &__title {
     @include text($H240, 600, $light-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   &__description {
+    @include text($H70, 400, #99a1a6);
     max-width: 450px;
     width: 100%;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  &__space {
+    display: block;
+  }
+  &__btn {
+    margin-bottom: 50px;
   }
   &__list {
-    @include flex(space-around, stretch);
-    padding: 0 30px;
+    @include flex(stretch, stretch);
   }
   &__item {
     @include flex(stretch, stretch);
+    margin-right: 30px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   &__img-wrapper {
     @include flex(stretch, center);
   }
   &__img {
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     &:first-child {
-      width: 60px;
+      width: 30px;
     }
   }
   &__title-wrapper {
     @include flex(stretch, center);
+  }
+  &__item-title {
+    @include text($H70, 400, #e6f1ff);
   }
 }
 </style>

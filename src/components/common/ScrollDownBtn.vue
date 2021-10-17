@@ -114,7 +114,7 @@ export default {
     transform: scale(1) translate(-50%, 10px);
   }
   95% {
-    transform: scale(1) translate(-50%, 26px);
+    transform: scale(1) translate(-50%, 30px);
   }
   100% {
     transform: scale(1) translate(-50%, 10px);

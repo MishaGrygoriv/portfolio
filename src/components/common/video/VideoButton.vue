@@ -29,11 +29,11 @@ import VideoCirclesSvg from "../../icons/VideoCirclesSvg.vue";
 export default {
   name: "VideoButton",
   components: { VideoCirclesSvg },
-  data() {
-    return {
-      videoLinks: this.$store.state.videoLinks,
-    };
-  },
+  // data() {
+  //   return {
+  //     videoLinks: this.$store.state.videoLinks,
+  //   };
+  // },
   mounted() {
     gsap.set(".first-circle", {
       rotation: 90,

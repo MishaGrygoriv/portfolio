@@ -8,24 +8,28 @@ export default new Vuex.Store({
         socialIcons: {
             github: {
                 classIcon: "fa fa-github social-icons__icon",
+                classIconFooter: "fa fa-github",
                 classLink: "social-icons__link _github",
                 name: "github",
                 href: "https://github.com/MishaGrygoriv",
             },
             linkedin: {
                 classIcon: "fa fa-linkedin social-icons__icon",
+                classIconFooter: "fa fa-linkedin",
                 classLink: "social-icons__link _linkedin _facebook",
                 name: "linkedin",
                 href: "https://www.linkedin.com/in/michael-grygoriv-682599141",
             },
             instagram: {
                 classIcon: "fa fa-instagram social-icons__icon",
+                classIconFooter: "fa fa-instagram",
                 classLink: "social-icons__link _instagram",
                 name: "instagram",
                 href: "https://www.instagram.com/grygoriv_misha",
             },
             resume: {
                 classIcon: "fa fa-file social-icons__icon",
+                classIconFooter: "fa fa-file",
                 classLink: "social-icons__link _resume _youtube",
                 name: "resume",
                 href: "https://github.com/MishaGrygoriv",
